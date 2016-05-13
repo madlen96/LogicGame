@@ -3,4 +3,4 @@ The second part of the homework includes logical game (some kind of QUIZ), in wh
 
 Example of correct usage: 
 
-                python Game.py --or or.txt --not not.txt --impl impl.txt --and and.txt
+     python Game.py --or or.txt --not not.txt --impl impl.txt --and and.txt
