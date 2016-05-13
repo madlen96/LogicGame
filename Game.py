@@ -306,7 +306,7 @@ def countPoints():
 def end():
     print("Koniec gry!\n ~~~ Twoj wynik to:", points ," / ", max_points," punktow. ~~~")
     if (points == max_points):
-        print ("Brawo! :) ")
+        print ("GRATULACJE!!! \n Udalo Ci sie wygrac, brawo! :) ")
     elif (points > max_points/2):
         print ("Calkiem nie najgorzej! :) ")
     else:
