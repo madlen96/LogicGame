@@ -1,8 +1,8 @@
 # Python 3.4.0
+# code by Magdalena Kudyba
 import sys
 import os
 import time
-import dictionary
 import random
 
 def ClearScreen():
