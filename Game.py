@@ -33,7 +33,6 @@ or_ = ""
 not_ = ""
 impl_ = ""
 # declaration of dictionaries for each logical operator 
-    
 AND = {}
 OR = {}
 NOT = {}
@@ -268,7 +267,7 @@ def Question8():
 # we use the content of textfiles in dictionaries
 # so that we can use it to check if player's answer is correct
 
-def filesToLists():
+def filesToDictionaries():
     with open(impl_, 'r') as file:
         for x in file:
             x = x.strip().replace(" ", "")
@@ -328,6 +327,6 @@ def play():
 start()
 ClearScreen()
 welcomeInfo()
-filesToLists()
+filesToDictionaries()
 play()
 end()
