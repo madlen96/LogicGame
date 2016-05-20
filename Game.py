@@ -1,4 +1,4 @@
-# Python 3.4.0
+# Python 2.7
 # code by Magdalena Kudyba
 import sys
 import os
