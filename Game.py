@@ -7,7 +7,7 @@ import random
 
 def ClearScreen():
     os.system('cls' if os.name == 'nt' else 'clear')
-    
+
 def rand_function(): # choosing random question
     a = random.randint(1, 160)
     if a <= 20:
@@ -26,13 +26,13 @@ def rand_function(): # choosing random question
         Question7()
     else:
         Question8()
-                
+
 # names of our files from command line:
 and_ = ""
 or_ = ""
 not_ = ""
 impl_ = ""
-# declaration of dictionaries for each logical operator 
+# declaration of dictionaries for each logical operator
 AND = {}
 OR = {}
 NOT = {}
@@ -41,10 +41,10 @@ IMPL = {}
 points = 0
 max_points = 12
 
-            
+
 def start(): # we check if arguments from the command line are correct
     counter = 0
-    for i in sys.argv[1:]: 
+    for i in sys.argv[1:]:
         counter += 1
     if counter == 0:
         error()
@@ -60,7 +60,7 @@ def start(): # we check if arguments from the command line are correct
             sys.exit()
         elif arg == "and.txt":
             global and_
-            and_ = arg    
+            and_ = arg
         elif arg == "or.txt":
             global or_
             or_ = arg
@@ -84,10 +84,9 @@ def welcomeInfo():
         print("GRA LOGICZNA \n\t 1 jezeli chcesz kontynuowac");
         print("\t 0 aby zakonczyc")
         print("Swoj wybor potwierdz wciskajac klawisz [ENTER] ")
-        pressed = input("")
+        pressed = raw_input()
         ClearScreen()
         if pressed == '1':
-            ClearScreen()
             print("Instrukcja, jak udzielac odpowiedzi:\n\tPrzyklad:")
             print("\t\t0 - NIE")
             print("\t\t1 - TAK")
@@ -99,13 +98,12 @@ def welcomeInfo():
         elif pressed == '0':
             sys.exit()
         else:
-            ClearScreen()
             continue
 
 def waitForZero():
      while True:
         print("Wcisnij 0 i [ENTER] aby zakonczyc.")
-        pressed = input("")
+        pressed = raw_input()
         ClearScreen()
         if pressed == '0':
             sys.exit()
@@ -132,13 +130,13 @@ def files():
     print("\tFalsz: 0")
     print("\tWartosc nieokreslona (ani prawda ani falsz): 2")
 
-    
+
 def error():
     print("Wystapil blad. Uzyj komendy --info w celu uzyskania dodatkowych informacji")
 
 def userAnswers(correctAnswer):
     while True:
-        answer = input("")
+        answer = raw_input()
         if (answer != '1' and answer != '0' and answer != '2'):
             print ("Wystapil blad - mozliwe opcje odpowiedzi to: 0, 1, 2. Prosze sprobowac ponownie.")
             time.sleep(2)
@@ -154,14 +152,14 @@ def userAnswers(correctAnswer):
                 time.sleep(3)
                 break
 
-    
-# quiz 
+
+# quiz
 
 def Question1():
-    print("1) Posprzatam pokój i wyjde z psem na spacer. ")
+    print("1) Posprzatam pokoj i wyjde z psem na spacer. ")
     print("2) Nie posprzatam pokoju lub nie wyjde z psem na spacer. ")
     print("Czy zdanie 2) jest prawidlowym zaprzeczeniem zdania 1)?")
-    print("\t0) TAK")  
+    print("\t0) TAK")
     print("\t1) NIE")
     print("\t2) NIE WIADOMO")
 
@@ -174,8 +172,8 @@ def Question1():
     userAnswers(correctAnswer)
 
 def Question2():
-    print("Aneta powiedziała: \"Jesli w piatek pojde do kina to pojde tez na dyskoteke.\"")
-    print("Czy na podstawie jej slow mozemy powiedziec, że jesli nie pojdzie na dyskoteke \nto pojdzie do kina?")
+    print("Aneta powiedziala: \"Jesli w piatek pojde do kina to pojde tez na dyskoteke.\"")
+    print("Czy na podstawie jej slow mozemy powiedziec, ze jesli nie pojdzie na dyskoteke \nto pojdzie do kina?")
     print("\t0) NIE")
     print("\t1) TAK")
     print("\t2) NIE WIADOMO")
@@ -193,7 +191,7 @@ def Question3():
     print("\t2) NIE WIADOMO")
     # we need to check if it is necessary to attend lectures as well as reading books to pass the exam
     # example:
-    p = '1' # I attend lectures 
+    p = '1' # I attend lectures
     q = '0' # I don't read books
     r = '1' # I pass my exam
     correctAnswer = impl_function(or_function(p,q), r)
@@ -203,16 +201,16 @@ def Question4():
     print("Jaka wartosc logiczna przyjmuje koniunkcja ponizszych zdan?")
     print("Ziemia bedzie nieruchoma.")
     print("Ludzie w 2100 r. pobuduja osiedla na Marsie.")
-    print("\t0) FAŁSZ")
+    print("\t0) FALSZ")
     print("\t1) PRAWDA ")
     print("\t2) NIE WIADOMO")
     q = '2' # the first one is unknown
     r = '2' # the same what above
     correctAnswer = and_function(q, r)
     userAnswers(correctAnswer)
-    
+
 def Question5():
-    print("Co należy wstawic w puste miejsce w zdaniu 2) aby zdanie to bylo \n poprawnym zaprzeczeniem zdania 1)?")
+    print("Co nalezy wstawic w puste miejsce w zdaniu 2) aby zdanie to bylo \n poprawnym zaprzeczeniem zdania 1)?")
     print("1)Mam BMW lub Audi.")
     print("2)Nie mam BMW ___ nie mam Audi.")
     print("\t0) \"i\" ")
@@ -224,7 +222,7 @@ def Question5():
     q = '0' # I don't have audi
     correctAnswer = not_function(or_function(p,q))
    # alternatively:
-   # correctAnswer = and_function(not_function(p),not_function(q)) 
+   # correctAnswer = and_function(not_function(p),not_function(q))
     userAnswers(correctAnswer)
 
 def Question6():
@@ -238,9 +236,9 @@ def Question6():
     q = '0' # second sentence is not correct
     correctAnswer = impl_function(p, q)
     userAnswers(correctAnswer)
-    
+
 def Question7():
-    print("1.\"Berlin jest stolica Niemiec.\" \n2.\"Wszystkie koty są czarne.\"\n3.\"Nie wiem, czy  umiem jezdzic na rolkach.\"")
+    print("1.\"Berlin jest stolica Niemiec.\" \n2.\"Wszystkie koty sa czarne.\"\n3.\"Nie wiem, czy  umiem jezdzic na rolkach.\"")
     print("X - alternatywa zdan 2. i 3.")
     print("Y - koniunkcja zdan 1. i X")
     print("Z - zaprzeczenie Y\n Jaka wartosc logiczna przyjmuje Z?")
@@ -263,7 +261,7 @@ def Question8():
     q = '1' # second sentence is not correct
     correctAnswer = not_function(and_function(p, q))
     userAnswers(correctAnswer)
-   
+
 # we use the content of textfiles in dictionaries
 # so that we can use it to check if player's answer is correct
 
@@ -284,7 +282,7 @@ def filesToDictionaries():
         for x in file:
             x = x.strip().replace(" ", "")
             OR[x[:2]] = x[2:]
-            
+
 # Logical functions
 
 def and_function(p, q):
@@ -299,12 +297,12 @@ def not_function(p):
 def impl_function(p, q):
     return IMPL.get(p + q)
 
-def countPoints(): 
+def countPoints():
     global points
     points +=1
 
 def end():
-    print("Koniec gry!\n ~~~ Twoj wynik to:", points ," / ", max_points," punktow. ~~~")
+    print "Koniec gry!\n ~~~ Twoj wynik to:", points ," / ", max_points," punktow. ~~~"
     if (points == max_points):
         print ("GRATULACJE!!! \n Udalo Ci sie wygrac, brawo! :) ")
     elif (points > max_points/2):
@@ -316,14 +314,14 @@ def end():
 def play():
     NumberOfQuestion = 0
     while True:
-        
+
         rand_function()
         NumberOfQuestion += 1
         ClearScreen()
         if (NumberOfQuestion == max_points):
                   break
-             
-# main part 
+
+# main part
 start()
 ClearScreen()
 welcomeInfo()
